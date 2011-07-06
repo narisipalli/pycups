@@ -1,0 +1,311 @@
+NEWS
+----
+
+New in 1.9.57:
+
+* Fixed rpm provides script for newer versions of rpm.
+
+New in 1.9.56:
+
+* Builds against older versions of CUPS again.
+
+New in 1.9.55:
+
+* cups.IPP_QUALITY_DRAFT, cups.IPP_QUALITY_NORMAL,
+  cups.IPP_QUALITY_HIGH
+* cups.IPP_PORTRAIT, cups.IPP_LANDSCAPE, cups.IPP_REVERSE_PORTRAIT,
+  cups.IPP_REVERSE_LANDSCAPE
+* cups.IPP_RES_UNITS_CM, cups.IPP_RES_UNITS_INCH
+* Support for IPP_TAG_RESOLUTION as triplet (xres, yres, units).
+
+New in 1.9.52:
+
+* cups.Connection.getPPDs2(): New method, identical to getPPDs() but
+  returning all attribute values as lists.
+
+New in 1.9.50:
+
+* cups.Connection.getPPD3()
+* cups.Connection.getJobs() now takes optional requested_attributes argument.
+* cups.Connection.getPrinterAttributes(): member-names is now always a list.
+* cups.HTTP_NOT_MODIFIED constant.
+* cups.PPD_ORDER_ANY constant.
+* cups.PPD_ORDER_DOCUMENT constant.
+* cups.PPD_ORDER_EXIT constant.
+* cups.PPD_ORDER_JCL constant.
+* cups.PPD_ORDER_PAGE constant.
+* cups.PPD_ORDER_PROLOG constant.
+* cups.PPD.emitString() method.
+* cups.PPD.emit() method.
+* cups.PPD.emitAfterOrder() method.
+* cups.PPD.emitFd() method.
+* cups.PPD.emitJCL() method.
+* cups.PPD.emitJCLEnd() method.
+
+New in 1.9.48:
+
+* cups.Connection.cancelJob()'s optional second argument is now a keyword.
+
+New in 1.9.47:
+
+* cups.Connection.restartJob() now takes optional job_hold_until argument.
+* cups.Connection.cancelJob() now takes optional purge_job argument.
+* cups.setPasswordCB2() method.
+* cups.Connection.moveJob() method.
+* cups.IPPAttribute and cups.IPPRequest types.
+* IPP state constants.
+* cups.Connection.getDevices() now takes optional timeout argument.
+
+New in 1.9.46:
+
+* cups.Connection.getDevices() now takes optional limit,
+  exclude_schemes and include_schemes arguments.
+* cups.Connection.getPPDs() now takes optional limit, exclude_schemes,
+  include_schemes, ppd_device_id, ppd_make, ppd_make_and_model,
+  ppd_model_number, ppd_product, ppd_psversion, ppd_type and
+  ppd_natural_language arguments.
+* cups.ppdSetConformance() method.
+* cups.PPD_CONFORM_RELAXED constant.
+* cups.PPD_CONFORM_STRICT constant.
+* cups.modelSort() now accepts Unicode strings.
+
+New in 1.9.45:
+
+* cups.PPD.localizeIPPReason()
+* cups.PPD.localizeMarkerName()
+
+New in 1.9.42:
+
+* cups.Connection.getJobAttributes() now takes optional requested_attributes
+  argument.
+* cups.Connection.getJobs() now takes optional limit and first_job_id
+  arguments.
+
+New in 1.9.41:
+
+* cups.Connection.putFile() now accepts a file descriptor or a Python
+  file object as the destination.
+
+New in 1.9.40:
+
+* cups.Connection() now takes optional arguments host, port, and
+  encryption.
+* cups.Connection.getPrinterAttributes() now takes an optional
+  requested_attributes argument
+
+New in 1.9.39:
+
+* cups.Connection.authenticateJob() auth parameter is now optional
+* cups.Connection.printFile()
+* cups.Connection.printFiles()
+
+New in 1.9.38:
+
+* cups.Connection.getFile() now accepts a file descriptor or a Python file
+  object as the destination.
+
+New in 1.9.37:
+
+* cups.Connection.authenticateJob()
+* cups.CUPS_PRINTER_DISCOVERED
+
+New in 1.9.36:
+
+* cups.Connection.renewSubscription() now takes an optional parameter
+  lease_duration.
+* cups.Connection.getJobAttributes() and
+  cups.Connection.getNotifications(): State reasons are now lists as they
+  ought to be.
+
+New in 1.9.35:
+
+* cups.Connection.getJobAttributes()
+* cups.Connection.cancelAllJobs()
+
+New in 1.9.32:
+
+* cups.Connection.getPrinterAttributes() now takes a uri keyword argument
+  for fetching attributes from non-CUPS IPP servers.
+
+New in 1.9.31:
+
+* cups.Connection.getDocument()
+* cups.Connection.getDefault()
+
+New in 1.9.29:
+
+* IPP attribute strings are now represented as Unicode objects.
+
+New in 1.9.28:
+
+* cups.Connection.getDests() now includes a (None,None) key in its result
+  for identifying the default printer.  This is intended to be equivalent
+  to cupsGetDest(NULL, NULL, ...).
+
+New in 1.9.27:
+
+* IPP attributes with type IPP_TAG_NOVALUE now take Python value None.
+
+New in 1.9.25:
+
+* cups.CUPS_SERVER_REMOTE_ANY (for CUPS 1.3)
+* cups.Connection.getServerPPD()
+
+New in 1.9.23:
+
+* cups.require()
+
+New in 1.9.22:
+
+* cups.Connection.getPPDs() and cups.Connection.getDevices() now allow
+  threads during the IO request
+* cups.Connection.printTestPage() now optionally takes more parameters
+  than just the printer name
+
+New in 1.9.21:
+
+* cups.Connection.getSubscriptions()
+* cups.Connection.createSubscription()
+* cups.Connection.getNotifications()
+* cups.Connection.renewSubscription()
+* cups.Connection.cancelSubscription()
+* cups.CUPS_PRINTER_COMMANDS
+
+New in 1.9.20:
+
+* cups.Connection.getPrinters() 'printer-state-reasons' attribute is now a
+  list (as it ought to have been originally).
+
+New in 1.9.19:
+
+* cups.IPP_JOB_* job states
+
+New in 1.9.18:
+
+* cups.Connection.getJobs() now includes job-state, job-preserved,
+  time-at-creation, time-at-processing, time-at-completed, job-media-sheets,
+  and job-media-sheets-completed attributes.
+* cups.Connection.getJobs() has new optional parameters which_jobs and
+  my_jobs.
+* cups.Connection.setJobHoldUntil()
+* cups.Connection.restartJob()
+
+New in 1.9.17:
+
+* cups.PPD.localize()
+
+New in 1.9.16:
+
+* cups.Connection.getPrinters() now includes printer-state-message and
+  printer-state-reasons attributes
+* cups.Connection.disablePrinter() and cups.Connection.rejectJobs()
+  now take an optional 'reason' keyword argument and use it to set
+  printer-state-message
+* cups.Connection.getJobs() now includes job-priority attribute
+
+New in 1.9.15:
+
+* cups.Connection.getJobs()
+* cups.Connection.cancelJob()
+
+New in 1.9.13:
+
+* cups.HTTP_FORBIDDEN
+
+New since 1.9.10:
+
+* cups.HTTP_* status codes
+
+New since 1.9.9:
+
+* cups.Connection getClasses() handles IPP_NOT_FOUND
+* PYCUPS_DEBUG environment variable controls debugging output
+
+New since 1.9.8:
+
+* cups.Connection.addPrinterOptionDefault() now supports lists and tuples
+* cups.Connection.getPrinterAttributes() now handles multi-valued default
+  options as lists
+* cups.IPP_FINISHINGS_* constants
+* cups.Connection getPrinters() handles IPP_NOT_FOUND
+
+New since 1.9.7:
+
+* cups.Connection.adminGetServerSettings()
+* cups.Connection.adminSetServerSettings()
+* cups.CUPS_SERVER_* string constants
+
+New since 1.9.6:
+
+* threading support
+* cups.Dest type
+* cups.Connection.addPrinterOptionDefault()
+* cups.Connection.deletePrinterOptionDefault()
+* cups.Connection.getDests()
+
+New since 1.9.5:
+
+* cups.Attribute object
+* cups.PPD.attributes
+* cups.PPD.findAttr()
+* cups.PPD.findNextAttr()
+
+New since 1.9.4:
+
+* cups.Connection.setPrinterShared() now handles classes
+* cups.Connection.printTestPage()
+* cups.Connection.getPPDs() includes ppd-make attribute
+* cups.IPP_MAX_NAME
+
+New since 1.9.3:
+
+* cups.Connection.enablePrinter() uses IPP_PAUSE_PRINTER
+* cups.Connection.disablePrinter() uses IPP_RESUME_PRINTER
+* cups.Connection.deleteClass()
+* cups.Connection.setPrinterLocation() and
+  cups.Connection.setPrinterInfo() now handle classes
+
+New since 1.9.2:
+
+* cups.PPD.* now convert from the PPD character set encoding
+* cups.Connection.setPrinterPublished() is now renamed to
+  cups.Connection.setPrinterShared()
+* cups.Connection.setPrinterUsersAllowed()
+* cups.Connection.setPrinterUsersDenied()
+
+New since 1.9.1:
+
+* fixed cups.Connection.setPrinterInfo()
+* fixed cups.Connection.setPrinterLocation()
+* cups.Connection.getPrinterAttributes()
+* cups.Connection.setPrinterJobSheets()
+* cups.Connection.setPrinterErrorPolicy()
+* cups.Connection.setPrinterOpPolicy()
+* cups.PPD.nondefaultsMarked()
+* cups.IPP_* error constants
+
+New since 1.9.0:
+
+* cups.Constraint type
+* cups.IPPError now includes the cupsLastErrorString()
+* cups.IPP_PRINTER_* constants
+* cups.setPort()
+* cups.getUser()
+* cups.getServer()
+* cups.getPort()
+* cups.getEncryption()
+
+* cups.PPD.constraints attribute
+* cups.PPD.getOptionGroups() method changed to optionGroups attribute
+* cups.PPD.Group.options is a list, not a dict
+* cups.PPD.findOption()
+* cups.PPD.writeFd()
+
+* cups.Connection.addPrinter now allows ppdname="foo.ppd" keyword for
+  installed PPDs; also info, location, device and ppd keywords
+* cups.Connection.getPPDs()
+* cups.Connection.getDevices()
+* cups.Connection.getClasses()
+* cups.Connection.setPrinterInfo()
+* cups.Connection.setPrinterLocation()
+* cups.Connection.setPrinterPublished()
