@@ -3804,9 +3804,11 @@ Connection_adminExportSamba (Connection *self, PyObject *args)
   if (!ret) {
     rewind(tf);
     while (!feof(tf)) {
-      fgets (str, 79, tf);
+      // Read the logfile line by line.
+      fgets (str, sizeof(str), tf);
     }
     fclose (tf);
+    // Last line contains the Exit status message.
     PyErr_SetString (PyExc_RuntimeError, str);
     debugprintf ("<- Connection_adminExportSamba() EXCEPTION\n");
     return NULL;
